@@ -9,8 +9,9 @@ window.initMap = function() {
 
   var options = {
     zoom:16,
-    center:{lat:-12.4634, lng:130.8456}
+    center: {lat:-12.4634,lng:130.8456}
   }
+
   var map = new google.maps.Map(document.getElementById('map'), options);
 
   user = navigator.geolocation;
@@ -46,6 +47,8 @@ window.initMap = function() {
       }
 
     }
+
+
           //add marker function
         addMarker({coords:{lat:-12.4634, lng:130.8456},
           content:'<h1>Plover</h1>'});
