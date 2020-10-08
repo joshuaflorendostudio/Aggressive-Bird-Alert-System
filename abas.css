@@ -1,5 +1,26 @@
 /* Set the size of the div element that contains the map */
 #map {
   height: 600px;  /* The height is 400 pixels */
-  width: 100%;  /* The width is the width of the web page */
+  width: 100%; /* The width is the width of the web page */
+  padding: 0;
+
  }
+
+#addmarker{
+  background-image: url(addmarker.png);
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 50px;
+
+  position: absolute;
+  right: 10;
+  top: 100px;
+  width: 100px;
+}
+
+
+html,body{
+  height: 100%;
+  margin: 0;
+  padding: 1;
+}
