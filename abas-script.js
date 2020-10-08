@@ -59,13 +59,23 @@ window.initMap = function() {
       content:'<h1>Curlew</h1>'})
 
   /*
-  //new Marker - contradicts the infoWindow listener
+  //new Marker - works but contradicts the infoWindow listener
   map.addListener('click', function(mapsMouseEvent){
     //create Marker
     //addMarker({coords: mapsMouseEvent.LatLng, content:'bird'});
     console.log('Add marker at this point')
   })*/
-};
+
+}; //closing for initMap
+
+
 
 // Append the 'script' element to 'head'
 document.head.appendChild(script);
+
+window.onload = function(){
+  var addmarkerbutton = document.getElementById("addmarkerBtn")
+  addmarkerbutton.onclick = function newMarker(){
+    confirm("Report bird location?");
+  };
+}
