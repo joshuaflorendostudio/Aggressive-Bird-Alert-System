@@ -68,11 +68,9 @@ window.initMap = function() {
 
 }; //closing for initMap
 
-
-
 // Append the 'script' element to 'head'
 document.head.appendChild(script);
-
+//note for further development: get location and make that location to the new marker
 window.onload = function(){
   var addmarkerbutton = document.getElementById("addmarkerBtn")
   addmarkerbutton.onclick = function newMarker(){
