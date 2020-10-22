@@ -98,15 +98,16 @@ window.initMap = function() {
   }; */
 
 
-  /* //add marker button
+  //add marker button
   window.onload = function(){
     var addmarkerbutton = document.getElementById("addmarkerBtn")
     addmarkerbutton.onclick = function (e){
       confirm("Report bird location?");
       //placeMarker(e.latLng, map);
-
     };
+  };
 
+    /*
     function placeMarker(position, map) {
       var marker = new google.maps.Marker({
         position: position,
