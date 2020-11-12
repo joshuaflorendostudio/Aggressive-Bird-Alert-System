@@ -9,7 +9,7 @@ window.initMap = function() {
   var options = {
     zoom:16,
     center: {lat:-12.4634,lng:130.8456}
-  }
+  };
 
   var map = new google.maps.Map(document.getElementById('map'), options);
   //USER that gets its current geolocation.
@@ -28,14 +28,30 @@ window.initMap = function() {
     var marker = new google.maps.Marker({map:map, position:coords, icon:'user-icon.png'});
     var userLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
     map.setCenter(userLocation);
+
+    /*
+    //function working but needs to append to add marker button
+    function newMarker(position){
+      var birdMarker = new google.maps.Marker({
+        position: userLocation,
+        map: map,
+        icon: 'bird-icon.png'
+      });
+    }/*/
+
+    //most recent add marker button may be best to use addListener
+
+    //newMarker();
+
   }
   function fail(){}
 
   //function and property: coordinates and message
   //add marker function
   function addMarker(props){
+
     var marker = new google.maps.Marker({
-      position:props.coords,
+      position: props.coords,
       map:map,
       icon: 'bird-icon.png'
 
@@ -68,67 +84,12 @@ window.initMap = function() {
       radius: 100px,
   }); */
 
+
+  //addMarker({position: props.userLocation}, {content:'<h1>Plover</h1>'})
     addMarker({coords:{lat:-12.4634, lng:130.8456},
       content:'<h1>Plover</h1>'});
     addMarker({coords:{lat:-12.4624, lng:130.8356},
       content:'<h1>Curlew</h1>'})
-
-  /*
-  //new Marker - works but contradicts the infoWindow listener
-  map.addListener('click', function(mapsMouseEvent){
-    //create Marker
-    //addMarker({coords: mapsMouseEvent.LatLng, content:'bird'});
-    console.log('Add marker at this point')
-  })*/
-
-
-  /*
-  //tring to click map
-  map.addListener('click', function(e) {
-    //placeMarker(e.LatLng, map);
-    console.log("Clicked!")
-
-  });
-
-  function placeMarker(position, map) {
-    var marker = new google.maps.Marker({
-      position: position,
-      map: map
-    });
-  }; */
-
-
-  //add marker button
-  window.onload = function(){
-    var addmarkerbutton = document.getElementById("addmarkerBtn")
-    addmarkerbutton.onclick = function (e){
-      confirm("Report bird location?");
-      //placeMarker(e.latLng, map);
-    };
-  };
-
-    /*
-    function placeMarker(position, map) {
-      var marker = new google.maps.Marker({
-        position: position,
-        map: map
-      }); //closing tag for var marker
-
-    }; //closing tag for placeMarker */
-
-
-      /*
-      //allow users to add Marker
-      map.event.addListener(map, 'click', function(event) {
-          placeMarker(event.userLocation);
-
-          function placeMarker(userLocation) {
-            var marker = new google.maps.Marker({
-              position: userLocation,
-              map: map
-            }); //closing tag for var marker
-          }; //closing tag for placeMarker
-        }); */
 
 
 }; //closing for initMap
@@ -136,7 +97,25 @@ window.initMap = function() {
 // Append the 'script' element to 'head'
 document.head.appendChild(script);
 //note for further development: get location and make that location to the new marker
-var reportbutton = '<button onclick="report()">Report</button>'
+var reportbutton = '<button onclick="report()">Report</button>';
 function report(){
   console.log("Reported!")
-}
+};
+
+window.onload = function(){
+  var addmarkerbutton = document.getElementById("addmarkerBtn");
+  addmarkerbutton.onclick = function (){
+    confirm("Report bird location?");
+    //placeMarker(e.latLng, map);
+    //addMarker({coords: mapsMouseEvent.LatLng, content:'bird'});
+    // #not working document.getElementById("click").onclick = newMarker();
+    newMarker();
+    //addMarker({coords: navigator.geolocation, content:'bird'});
+    console.log('Add marker at this point');
+  };
+};
+
+
+
+
+//trial marker connection for buttons
